@@ -1,46 +1,50 @@
-#include <Servo.h> 
+#include <Servo.h>
 
-const int trigPin = 10;
-const int echoPin = 11;
+Servo myServo; 
+const int pingPin = 11; // PING))) SIG pin D11 ki undi
 long duration;
 int distance;
-Servo myServo;
 
 void setup() {
-  pinMode(trigPin, OUTPUT); 
-  pinMode(echoPin, INPUT); 
+  pinMode(pingPin, OUTPUT);
   Serial.begin(9600);
-  myServo.attach(12);
+  myServo.attach(9); // Servo D9 ki undi
 }
 
 void loop() {
-  for(int i=15;i<=165;i++){  
+  for(int i=15; i<=165; i++){
     myServo.write(i);
-    delay(30);
-    distance = calculateDistance();
-    Serial.print(i); 
-    Serial.print(","); 
-    Serial.print(distance); 
-    Serial.print("."); 
-  }
-  for(int i=165;i>15;i--){  
-    myServo.write(i);
-    delay(30);
+    delay(50);
     distance = calculateDistance();
     Serial.print(i);
     Serial.print(",");
     Serial.print(distance);
-    Serial.print(".");
+    Serial.println(".");
+  }
+  
+  for(int i=165; i>=15; i--){
+    myServo.write(i);
+    delay(50);
+    distance = calculateDistance();
+    Serial.print(i);
+    Serial.print(",");
+    Serial.print(distance);
+    Serial.println(".");
   }
 }
 
-int calculateDistance(){ 
-  digitalWrite(trigPin, LOW); 
+int calculateDistance(){
+  pinMode(pingPin, OUTPUT);
+  digitalWrite(pingPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH); 
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  duration = pulseIn(echoPin, HIGH); 
-  distance= duration*0.034/2;
+  digitalWrite(pingPin, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(pingPin, LOW);
+  
+  pinMode(pingPin, INPUT);
+  duration = pulseIn(pingPin, HIGH);
+  distance = duration * 0.034 / 2;
+  
+  if(distance > 400 || distance <= 0) distance = 400;
   return distance;
 }
