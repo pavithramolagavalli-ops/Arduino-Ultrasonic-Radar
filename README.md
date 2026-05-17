@@ -10,7 +10,7 @@
 - **Servo Signal** → Arduino **D9** 
 - **VCC** → 5V, **GND** → GND
 ## 👩‍💻 Author
-**Pavithra Molagavalli**  
+**Pavithra Molagavelli**  
 Embedded Systems Enthusiast | Arduino & IoT Developer
 
 Connect with me: [LinkedIn](https://www.linkedin.com/in/pavithra-molagavelli-613906326) | [GitHub](https://github.com/pavithramolagavalli-ops)
