@@ -6,4 +6,4 @@
 **Pavithra Molagavalli**  
 Embedded Systems Enthusiast | Arduino & IoT Developer
 
-Connect with me: [LinkedIn](nee-linkedin-url-ikkada-pettu) | [GitHub](https://github.com/pavithramolagavalli-ops)
+Connect with me: [LinkedIn](https://www.linkedin.com/in/pavithra-molagavelli-613906326) | [GitHub](https://github.com/pavithramolagavalli-ops)
